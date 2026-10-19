@@ -18,7 +18,7 @@ def _get_polygons_properties(df: GeoDataFrame, simplify: bool, include_z: bool) 
     add_z = include_z and "z" in axes
 
     for i in range(len(df)):
-        indices.append(df.index[i])
+        indices.append(df.index[i])  # keep string ids (sopa/cellpose/Xenium shapes), as in <= 0.6.0; see scverse/napari-spatialdata#404
 
         if simplify:
             xy = list(df.geometry.iloc[i].exterior.simplify(tolerance=2).coords)
