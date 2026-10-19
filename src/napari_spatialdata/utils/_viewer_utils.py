@@ -18,7 +18,7 @@ def _get_polygons_properties(df: GeoDataFrame, simplify: bool, include_z: bool) 
     add_z = include_z and "z" in axes
 
     for i in range(len(df)):
-        indices.append(int(df.index[i]))
+        indices.append(df.index[i])
 
         if simplify:
             xy = list(df.geometry.iloc[i].exterior.simplify(tolerance=2).coords)
